@@ -143,7 +143,6 @@ public final class HookManager {
 	private static TownyHook townyHook;
 	private static VaultHook vaultHook;
 	private static WorldEditHook worldeditHook;
-	private static WorldGuardHook worldguardHook;
 
 	private static boolean nbtAPIDummyHook = false;
 	private static boolean nuVotifierDummyHook = false;
@@ -297,9 +296,6 @@ public final class HookManager {
 
 		if (Common.doesPluginExist("WorldEdit") || Common.doesPluginExist("FastAsyncWorldEdit"))
 			worldeditHook = new WorldEditHook();
-
-		if (Common.doesPluginExist("WorldGuard"))
-			worldguardHook = new WorldGuardHook(worldeditHook);
 
 		// Dummy hooks.
 
@@ -637,15 +633,6 @@ public final class HookManager {
 	 */
 	public static boolean isWorldEditLoaded() {
 		return worldeditHook != null || isFAWELoaded();
-	}
-
-	/**
-	 * Is WorldGuard loaded?
-	 *
-	 * @return
-	 */
-	public static boolean isWorldGuardLoaded() {
-		return worldguardHook != null;
 	}
 
 	// ------------------------------------------------------------------------------------------------------------
